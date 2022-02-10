@@ -1,0 +1,42 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80.556%;
+    height: 180px;
+    margin: auto;
+}
+
+.header_text {
+    margin: 0;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.header_title {
+    font-size: 32px;
+    line-height: 37px;
+}
+
+.conteiner {
+    width: 375px;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    column-gap: 24px;
+}
+
+.button {
+    width: 100px;
+    height: 50px;
+    background-color: #102a86;
+    border-radius: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.button_text {
+    font-size: 24px;
+    line-height: 28px;
+    text-align: start;
+}
