@@ -5,6 +5,7 @@
     width: 80.556%;
     height: 180px;
     margin: auto;
+    border-bottom: black solid 5px;
 }
 
 .header_text {
