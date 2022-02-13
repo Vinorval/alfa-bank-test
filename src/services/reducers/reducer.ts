@@ -4,6 +4,7 @@ import {
     GET_ITEMS_FAILED,
     LIKE,
     DISLIKE,
+    DELETECARD,
 } from '../actions/action';
 import { TGetItemsActions } from '../actions/action';
 import { TData, TFood } from '../../utils/types';
@@ -36,6 +37,9 @@ export const itemsReducer = (state = initialState, action: TGetItemsActions): TI
       }
       case DISLIKE: {
         return { ...state, items: state.items!.map(el => (el.id === action.payload.id ? { ...el, like: false } : el))}
+      }
+      case DELETECARD: {
+        return { ...state, items: state.items!.filter(el => el.id !== action.id)}
       }
       default: {
         return state;

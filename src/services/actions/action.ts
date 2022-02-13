@@ -8,6 +8,7 @@ export const GET_ITEMS_FAILED: 'GET_ITEMS_FAILED' = 'GET_ITEMS_FAILED';
 
 export const LIKE: 'LIKE' = 'LIKE';
 export const DISLIKE: 'DISLIKE' = 'DISLIKE';
+export const DELETECARD: 'DELETECARD' = 'DELETECARD';
 
 type TGetItemsActionRequest = { readonly type: typeof GET_ITEMS_REQUEST };
 type TGetItemsActionSuccess = { readonly type: typeof GET_ITEMS_SUCCESS; items: TData };
@@ -15,6 +16,7 @@ type TGetItemsActionFailed = { readonly type: typeof GET_ITEMS_FAILED };
 
 type TLike = { readonly type: typeof LIKE; payload: {id: number, like: boolean} }
 type TDisLike = { readonly type: typeof DISLIKE; payload: {id: number, like: boolean} }
+type TDelete = { readonly type: typeof DELETECARD; id: number }
 
 const getItemsRequest = (): TGetItemsActionRequest => {
     return {
@@ -55,8 +57,15 @@ export const getDisLike = (id: number): TDisLike => {
   }
 }
 
+export const deleteCard = (id: number): TDelete => {
+  return {
+    type: DELETECARD,
+    id
+  }
+}
+
 export type TGetItemsActions = ReturnType<
-  typeof getItemsRequest | typeof getItemsSuccess | typeof getItemsFailed | typeof getLike | typeof getDisLike
+  typeof getItemsRequest | typeof getItemsSuccess | typeof getItemsFailed | typeof getLike | typeof getDisLike | typeof deleteCard
 >;
 
 export const getItems: AppThunk = () => {
