@@ -1,4 +1,5 @@
-import { TGame, AppDispatch, AppThunk } from "../../utils/types";
+import { formatDiagnostic } from "typescript";
+import { TData, AppDispatch, AppThunk } from "../../utils/types";
 import { getGamesRequest } from '../api';
 
 export const GET_ITEMS_REQUEST: 'GET_ITEMS_REGUST' = 'GET_ITEMS_REGUST';
@@ -6,7 +7,7 @@ export const GET_ITEMS_SUCCESS: 'GET_ITEMS_SUCCESS' = 'GET_ITEMS_SUCCESS';
 export const GET_ITEMS_FAILED: 'GET_ITEMS_FAILED' = 'GET_ITEMS_FAILED';
 
 type TGetItemsActionRequest = { readonly type: typeof GET_ITEMS_REQUEST };
-type TGetItemsActionSuccess = { readonly type: typeof GET_ITEMS_SUCCESS; readonly items: readonly TGame[] };
+type TGetItemsActionSuccess = { readonly type: typeof GET_ITEMS_SUCCESS; items: TData };
 type TGetItemsActionFailed = { readonly type: typeof GET_ITEMS_FAILED };
 
 
@@ -16,7 +17,7 @@ const getItemsRequest = (): TGetItemsActionRequest => {
     };
 };
 
-const getItemsSuccess = (items: readonly TGame[]): TGetItemsActionSuccess => {
+const getItemsSuccess = (items: TData): TGetItemsActionSuccess => {
     return {
       type: GET_ITEMS_SUCCESS,
       items: items

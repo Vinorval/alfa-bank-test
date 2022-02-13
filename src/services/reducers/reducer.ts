@@ -4,11 +4,11 @@ import {
     GET_ITEMS_FAILED,
 } from '../actions/action';
 import { TGetItemsActions } from '../actions/action';
-import { TGame } from '../../utils/types';
+import { TData, TFood } from '../../utils/types';
 
 type TInitialStatte = {
     itemsRequest: boolean;
-    items: readonly TGame[] | null;
+    items: ReadonlyArray<TFood> | null;
     itemsFailed: boolean;
 }
 
@@ -24,7 +24,7 @@ export const itemsReducer = (state = initialState, action: TGetItemsActions): TI
         return { ...state, itemsRequest: true, itemsFailed: false};
       }
       case GET_ITEMS_SUCCESS: {
-        return { ...state, items: action.items, itemsFailed: false, itemsRequest: false };
+        return { ...state, items: action.items.creatures.food, itemsFailed: false, itemsRequest: false };
       }
       case GET_ITEMS_FAILED: {
         return { ...state, itemsFailed: true, itemsRequest: false};

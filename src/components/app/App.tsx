@@ -8,11 +8,11 @@ import { getItems } from '../../services/actions/action';
 
 function App() {
   const dispatch = useDispatch();
-  const item = useSelector(store => store.games.items);
+  //const items = useSelector(store => store.games.items?.creatures.food);
 
   React.useEffect(() => {
     dispatch(getItems());
-    //console.log(item.creatures)
+    //console.log(item)
   }, [dispatch]);
 
   return (

@@ -1,5 +1,5 @@
 //import { resolve } from "path/posix";
-import { TGame } from "../utils/types";
+import { TData } from "../utils/types";
 
 export type TResponseBody<TDataKey extends string = '', TDataType = {}> = {
     [key in TDataKey]: TDataType
@@ -11,7 +11,7 @@ export type TResponseBody<TDataKey extends string = '', TDataType = {}> = {
 };
 
 export const getGamesRequest = async (): Promise<
-  TResponseBody<'data', ReadonlyArray<TGame>>
+  TResponseBody<'data', TData>
   > =>
   await fetch('https://botw-compendium.herokuapp.com/api/v2/all', {
     //mode: 'no-cors',
@@ -33,4 +33,4 @@ export const getGamesRequest = async (): Promise<
       return res.status === 200 ? res.json() : res.json().then((err) => Promise.reject(err));
   //    return res.json();
     }))
-    .then(data => data);
+    .then(data => data)
