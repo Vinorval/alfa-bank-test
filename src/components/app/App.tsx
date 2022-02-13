@@ -8,17 +8,18 @@ import { getItems } from '../../services/actions/action';
 
 function App() {
   const dispatch = useDispatch();
-  //const items = useSelector(store => store.games.items?.creatures.food);
+  const [isLikeList, setLikeList] = React.useState<boolean>(false);
+
+  const clickChangeList = () => setLikeList(!isLikeList);
 
   React.useEffect(() => {
     dispatch(getItems());
-    //console.log(item)
   }, [dispatch]);
 
   return (
     <div className="App">
-      <Header />
-      <Cards />
+      <Header listChange={clickChangeList} />
+      <Cards list={isLikeList}/>
     </div>
   );
 }

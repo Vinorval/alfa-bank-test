@@ -14,8 +14,8 @@ type TGetItemsActionRequest = { readonly type: typeof GET_ITEMS_REQUEST };
 type TGetItemsActionSuccess = { readonly type: typeof GET_ITEMS_SUCCESS; items: TData };
 type TGetItemsActionFailed = { readonly type: typeof GET_ITEMS_FAILED };
 
-type TLike = { readonly type: typeof LIKE; payload: {id: number, like: boolean} }
-type TDisLike = { readonly type: typeof DISLIKE; payload: {id: number, like: boolean} }
+type TLike = { readonly type: typeof LIKE; payload: {item: TFood, like: boolean} }
+type TDisLike = { readonly type: typeof DISLIKE; payload: {item: TFood, like: boolean} }
 type TDelete = { readonly type: typeof DELETECARD; id: number }
 
 const getItemsRequest = (): TGetItemsActionRequest => {
@@ -37,21 +37,21 @@ const getItemsFailed = (): TGetItemsActionFailed => {
     };
 };
 
-export const getLike = (id: number): TLike => {
+export const getLike = (item: TFood): TLike => {
   return {
     type: LIKE,
     payload: {
-      id,
+      item,
       like: true
     }
   }
 }
 
-export const getDisLike = (id: number): TDisLike => {
+export const getDisLike = (item: TFood): TDisLike => {
   return {
     type: DISLIKE,
     payload: {
-      id,
+      item,
       like: false
     }
   }

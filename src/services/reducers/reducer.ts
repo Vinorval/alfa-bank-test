@@ -13,12 +13,14 @@ type TInitialStatte = {
     itemsRequest: boolean;
     items: ReadonlyArray<TFood> | null;
     itemsFailed: boolean;
+    likeItems: ReadonlyArray<TFood> | []
 }
 
 const initialState: TInitialStatte = {
     itemsRequest: false,
     items: null,
-    itemsFailed: false,
+    likeItems: [],
+    itemsFailed: false
 };
 
 export const itemsReducer = (state = initialState, action: TGetItemsActions): TInitialStatte => {
@@ -33,10 +35,18 @@ export const itemsReducer = (state = initialState, action: TGetItemsActions): TI
         return { ...state, itemsFailed: true, itemsRequest: false};
       }
       case LIKE: {
-        return { ...state, items: state.items!.map(el => (el.id === action.payload.id ? { ...el, like: true } : el))}
+        return {
+          ...state,
+          items: state.items!.map(el => (el.id === action.payload.item.id ? { ...el, like: true } : el)),
+          likeItems: [...state.likeItems, action.payload.item ]
+        }
       }
       case DISLIKE: {
-        return { ...state, items: state.items!.map(el => (el.id === action.payload.id ? { ...el, like: false } : el))}
+        return {
+          ...state,
+          items: state.items!.map(el => (el.id === action.payload.item.id ? { ...el, like: false } : el)),
+          likeItems: state.likeItems.filter(el => el.id !== action.payload.item.id)
+        }
       }
       case DELETECARD: {
         return { ...state, items: state.items!.filter(el => el.id !== action.id)}

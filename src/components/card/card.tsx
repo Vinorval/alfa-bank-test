@@ -5,31 +5,30 @@ import ButtonDelete from "../../image/button-delete.png";
 import { useSelector, useDispatch } from "../../services/hooks";
 import Styles from "./card.module.css";
 import { getLike, getDisLike, deleteCard } from '../../services/actions/action';
+import { TFood } from '../../utils/types';
 
 interface IIngredientProps {
-    name: string;
-    image: string;
+    item: TFood
     like: boolean;
-    id: number;
 }
 
-const Card: React.FC<IIngredientProps> = ({ name, image, like, id }) => {
+const Card: React.FC<IIngredientProps> = ({ item, like }) => {
     const dispatch = useDispatch();
     const clickLike = () => {
-        console.log(id);
-        like ? dispatch(getDisLike(id)) : dispatch(getLike(id))
+        console.log(item.id);
+        like ? dispatch(getDisLike(item)) : dispatch(getLike(item))
         //dispatch(getLike(id))
     }
     const clickDelete = () => {
-        console.log(id);
-        dispatch(deleteCard(id));
+        console.log(item.id);
+        dispatch(deleteCard(item.id));
     }
 
     return (
         <div className={Styles.card}>
-            <img alt={name} src={image} className={Styles.card_image} />
+            <img alt={item.name} src={item.image} className={Styles.card_image} />
             <div className={Styles.card_info}>
-                <p className={Styles.card_name}>{name}</p>
+                <p className={Styles.card_name}>{item.name}</p>
                 <button onClick={clickLike}>{like ? <img src={noneLike} alt="Button-Like" /> : <img src={likeP} alt="Button-Like" />}</button>
             </div>
             <img onClick={clickDelete} className={Styles.card_delete} src={ButtonDelete} alt="Button-Delete"/>
