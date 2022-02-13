@@ -9,7 +9,7 @@ export default function Cards() {
     return (
         <div className={Styles.cards}>
             {items?.map( item => {
-                return <Card name={item.name} image={item.image} key={item.id} like={item.like ? item.like : false} />
+                return <Card name={item.name} image={item.image} id={item.id} key={item.id} like={item.like ? item.like : false} />
             })}
         </div>
     )

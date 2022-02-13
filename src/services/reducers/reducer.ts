@@ -2,6 +2,8 @@ import {
     GET_ITEMS_REQUEST,
     GET_ITEMS_SUCCESS,
     GET_ITEMS_FAILED,
+    LIKE,
+    DISLIKE,
 } from '../actions/action';
 import { TGetItemsActions } from '../actions/action';
 import { TData, TFood } from '../../utils/types';
@@ -28,6 +30,12 @@ export const itemsReducer = (state = initialState, action: TGetItemsActions): TI
       }
       case GET_ITEMS_FAILED: {
         return { ...state, itemsFailed: true, itemsRequest: false};
+      }
+      case LIKE: {
+        return { ...state, items: state.items!.map(el => (el.id === action.payload.id ? { ...el, like: true } : el))}
+      }
+      case DISLIKE: {
+        return { ...state, items: state.items!.map(el => (el.id === action.payload.id ? { ...el, like: false } : el))}
       }
       default: {
         return state;
