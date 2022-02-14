@@ -3,5 +3,30 @@
     margin: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    column-gap: 14px;
+    gap: 14px;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 784px) and (max-width: 1024px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 580px) and (max-width: 784px) {
+    .cards {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 580px) {
+    .cards {
+        grid-template-columns: repeat(1, 1fr);
+        width: 90%;
+    }
 }

@@ -41,3 +41,32 @@
     line-height: 28px;
     text-align: start;
 }
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+    .header {
+        width: 90%;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+
+    .header_title {
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+    .conteiner {
+        width: 200px;
+        grid-template-columns: 50px 1fr;
+        column-gap: 4px;
+    }
+
+    .button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .button_text {
+        font-size: 14px;
+        line-height: 16px;
+    }
+}
