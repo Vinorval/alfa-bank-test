@@ -1,14 +1,24 @@
 import React from 'react';
 import Styles from './Header.module.css';
 
-export default function Header () {
+interface IProps {
+    listChange: Function
+}
+
+const Header: React.FC<IProps> = ({ listChange }) => {
+    const clickButton = () => {
+        return listChange()
+    }
+
     return (
         <header className={Styles.header}>
             <h1 className={`${Styles.header_title} ${Styles.header_text}`}>Free-To-Play Games</h1>
             <div className={Styles.conteiner}>
-                <button className={Styles.button} />
+                <button onClick={clickButton} className={Styles.button} />
                 <p className={`${Styles.button_text} ${Styles.header_text}`}>Показать только задайканые карточки</p>
             </div>
         </header>
     )
 }
+
+export default Header;
