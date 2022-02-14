@@ -5,8 +5,8 @@ import {
   } from 'react-redux';
   import { AppDispatch, AppThunk, RootState } from '../utils/types';
   
-  // Теперь этот хук «знает» структуру хранилища
+  // Создание хука, знающего все типы данных в хранилище
   export const useSelector: TypedUseSelectorHook<RootState> = selectorHook;
   
-  // Хук не даст отправить экшен, который ему не знаком
+  // Создание хука, которые отправляет только знакомые ему экшены
   export const useDispatch = () => dispatchHook<AppDispatch | AppThunk>();

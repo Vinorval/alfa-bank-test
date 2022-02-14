@@ -2,7 +2,7 @@ import React from "react";
 import likeP from "../../image/like.svg";
 import noneLike from "../../image/like-none.svg";
 import ButtonDelete from "../../image/button-delete.png";
-import { useSelector, useDispatch } from "../../services/hooks";
+import { useDispatch } from "../../services/hooks";
 import Styles from "./card.module.css";
 import { getLike, getDisLike, deleteCard } from '../../services/actions/action';
 import { TFood } from '../../utils/types';
@@ -14,13 +14,13 @@ interface IIngredientProps {
 
 const Card: React.FC<IIngredientProps> = ({ item, like }) => {
     const dispatch = useDispatch();
+    //фунуция для постановки лайка
     const clickLike = () => {
-        console.log(item.id);
+        //в зависимости от самого лайка - он либо ставится, либо удаляется
         like ? dispatch(getDisLike(item)) : dispatch(getLike(item))
-        //dispatch(getLike(id))
     }
+    //функция на удаление карточки
     const clickDelete = () => {
-        console.log(item.id);
         dispatch(deleteCard(item.id));
     }
 

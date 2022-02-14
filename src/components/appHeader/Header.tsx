@@ -7,13 +7,14 @@ interface IProps {
 }
 
 const Header: React.FC<IProps> = ({ listChange, itsLike }) => {
+    //функция для фильтрации карточек, меняет булевое значение, которое отвечает за отрисовку нужного списка
     const clickButton = () => {
         return listChange()
     }
 
     return (
         <header className={Styles.header}>
-            <h1 className={`${Styles.header_title} ${Styles.header_text}`}>Free-To-Play Games</h1>
+            <h1 className={`${Styles.header_title} ${Styles.header_text}`}>Sea creatures</h1>
             <div className={Styles.conteiner}>
                 <button onClick={clickButton} className={Styles.button} />
                 {itsLike ?
