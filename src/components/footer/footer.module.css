@@ -1,0 +1,14 @@
+.footer {
+    width: 80.556%;
+    height: 80px;
+    margin: auto;
+}
+
+.footer_text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: start;
+}
