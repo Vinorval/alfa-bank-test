@@ -1,6 +1,6 @@
 .footer {
     width: 80.556%;
-    height: 80px;
+    min-height: 80px;
     margin: auto;
 }
 
@@ -9,6 +9,12 @@
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
-    line-height: 23px;
+    line-height: 22px;
     text-align: start;
+}
+
+@media screen and (min-width: 320px) and (max-width: 580px) {
+    .footer {
+        width: 90%;
+    }
 }

@@ -29,7 +29,7 @@ const Card: React.FC<IIngredientProps> = ({ item, like }) => {
             <img alt={item.name} src={item.image} className={Styles.card_image} />
             <div className={Styles.card_info}>
                 <p className={Styles.card_name}>{item.name}</p>
-                <button onClick={clickLike}>{like ? <img src={noneLike} alt="Button-Like" /> : <img src={likeP} alt="Button-Like" />}</button>
+                <button className={Styles.card_like} onClick={clickLike}>{like ? <img src={noneLike} alt="Button-Like" /> : <img src={likeP} alt="Button-Like" />}</button>
             </div>
             <img onClick={clickDelete} className={Styles.card_delete} src={ButtonDelete} alt="Button-Delete"/>
         </div>

@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header listChange={clickChangeList} />
+      <Header itsLike={isLikeList} listChange={clickChangeList} />
       <Cards list={isLikeList}/>
       <Footer />
     </div>

@@ -7,6 +7,13 @@
     flex-direction: column;
 }
 
+.card_like {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+}
+
 .card_image {
     width: 100%;
     height: 240px;
@@ -30,4 +37,16 @@
     position: absolute;
     top: 24px;
     right: 24px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 784px) {
+    .card {
+        height: 240px;
+        width: 200px;
+        margin: auto;
+    }
+
+    .card_image {
+        height: 200px;
+    }
 }
